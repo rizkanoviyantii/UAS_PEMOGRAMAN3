@@ -306,28 +306,14 @@ include "koneksi.php";
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800 text-center">Input Pelanggan</h1>
+                        <h1 class="h3 mb-0 text-gray-800 text-center">Input Satuan</h1>
                     </div>
 
                     <div class="row ml-1">
-                        <form method="POST" action="save_pelanggan.php">
+                        <form method="POST" action="save_satuan.php">
                             <div class="form-group">
-                                <label for="nama_pelanggan">Nama Pelanggan</label>
-                                <input type="text" class="form-control" id="nama_pelanggan" name="nama_pelanggan">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="no_tlp">No Telepon</label>
-                                <input type="text" class="form-control" id="no_tlp" name="no_tlp">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="status">Status</label>
-                                <select class="form-control" id="status" name="status">
-                                    <option value="">Pilih</option>
-                                    <option value="Member">Member</option>
-                                    <option value="Non Member">Non Member</option>
-                                </select>
+                                <label for="nama">Nama Satuan</label>
+                                <input type="text" class="form-control" id="nama" name="nama">
                             </div>
 
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -335,7 +321,7 @@ include "koneksi.php";
                     </div>
 
                     <div class="d-sm-flex align-items-center justify-content-between mt-3 mb-4">
-                        <h1 class="h3 mb-0 text-gray-800 text-center">List Pelanggan</h1>
+                        <h1 class="h3 mb-0 text-gray-800 text-center">List Satuan</h1>
                     </div>
 
                     <table class="table">
@@ -343,22 +329,18 @@ include "koneksi.php";
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Nama</th>
-                                <th scope="col">No Telepon</th>
-                                <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             $no = 1;
-                            $sql = mysqli_query($koneksi, "select * from pelanggan");
+                            $sql = mysqli_query($koneksi, "select * from satuan");
                             while ($data = mysqli_fetch_array($sql)) {
                             ?>
 
                                 <tr>
                                     <th scope="row"><?= $no++ ?></th>
-                                    <td><?= $data['nama_pelanggan'] ?></td>
-                                    <td><?= $data['no_tlp'] ?></td>
-                                    <td><?= $data['status'] ?></td>
+                                    <td><?= $data['nama'] ?></td>
                                 </tr>
 
                             <?php } ?>
